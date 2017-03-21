@@ -12,7 +12,7 @@
     <div id="app"></div>
     <script type="text/babel">
 
-    var CounterChallenge = React.createClass({
+    var Counter = React.createClass({
       getInitialState: function() {
         return {
           count: 0
@@ -62,7 +62,7 @@ var Button = function(props){
 };
 
     ReactDOM.render(
-      <CounterChallenge valueOne={1000}/>,
+      <Counter valueOne={1000}/>,
       document.getElementById('app')
     );
     </script>
