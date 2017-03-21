@@ -33,11 +33,24 @@
           count: this.state.count *2
         })
       },
+      divide2: function(){
+        this.setState({
+          count:this.state.count / 2
+        })
+      },
+      subtractCount: function(value){
+        this.setState({
+          count:this.state.count - value
+        })
+      },
       getDefaultProps: function(){
         return{
           valueOne:1,
-          valueTwo:5,
-          valueThree:10,
+          valueTwo:2,
+          valueThree:5,
+          valueFour:10,
+          valueFive:25,
+          valueSix:100,
           text: 'Add'
         }
       },
@@ -45,11 +58,25 @@
         return (
           <div className="container">
             <h1>Count: {this.state.count}</h1>
+
             <Button text={`${this.props.text} ${this.props.valueOne}`} style="btn blue-btn" value={this.props.valueOne} clickHandler={this.incrementCount.bind(this,this.props.valueOne)} />
+
             <Button text={`${this.props.text} ${this.props.valueTwo}`} style="btn green-btn" value={this.props.valueTwo} clickHandler={this.incrementCount.bind(this,this.props.valueTwo)} />
+
             <Button text={this.props.text + ' ' + this.props.valueThree} style="btn purple-btn" value={this.props.valueThree} clickHandler={this.incrementCount.bind(this,this.props.valueThree)} />
-            <button className="btn red-btn" onClick={this.resetCount}>Reset Count</button>
+
+            <Button text={`${this.props.text} ${this.props.valueFour}`} style="btn blue-btn" value={this.props.valueFour} clickHandler={this.incrementCount.bind(this,this.props.valueFour)} />
+
+            <Button text={`${this.props.text} ${this.props.valueFive}`} style="btn green-btn" value={this.props.valueFive} clickHandler={this.incrementCount.bind(this,this.props.valueFive)} />
+
+            <Button text={`${this.props.text} ${this.props.valueSix}`} style="btn purple-btn" value={this.props.valueSix} clickHandler={this.incrementCount.bind(this,this.props.valueSix)} />
+
+            <button className="btn" onClick={this.resetCount}>Reset Count</button>
+
             <button className="btn green-btn" onClick={this.multiply2}>x2</button>
+
+            <button className="btn red-btn" onClick={this.divide2}>Halve</button>
+
           </div>
         )
       }
@@ -62,7 +89,7 @@ var Button = function(props){
 };
 
     ReactDOM.render(
-      <Counter valueOne={1000}/>,
+      <Counter valueSix={10000}/>,
       document.getElementById('app')
     );
     </script>
