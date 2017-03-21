@@ -38,7 +38,7 @@
           count:this.state.count / 2
         })
       },
-      subtractCount: function(value){
+      reduceCount: function(value){
         this.setState({
           count:this.state.count - value
         })
@@ -51,32 +51,56 @@
           valueFour:10,
           valueFive:25,
           valueSix:100,
-          text: 'Add'
+          text: '+',
+          text2: '-'
         }
       },
       render: function() {
         return (
           <div className="container">
-            <h1>Count: {this.state.count}</h1>
+            <div>
+              <h1>Count: {this.state.count}</h1>
 
-            <Button text={`${this.props.text} ${this.props.valueOne}`} style="btn blue-btn" value={this.props.valueOne} clickHandler={this.incrementCount.bind(this,this.props.valueOne)} />
+            </div>
 
-            <Button text={`${this.props.text} ${this.props.valueTwo}`} style="btn green-btn" value={this.props.valueTwo} clickHandler={this.incrementCount.bind(this,this.props.valueTwo)} />
+          <div className="buttainer-subtract">
+            <Button text={`${this.props.text2} ${this.props.valueSix}`} style="btn" value={this.props.valueSix} clickHandler={this.reduceCount.bind(this,this.props.valueSix)} />
 
-            <Button text={this.props.text + ' ' + this.props.valueThree} style="btn purple-btn" value={this.props.valueThree} clickHandler={this.incrementCount.bind(this,this.props.valueThree)} />
+            <Button text={`${this.props.text2} ${this.props.valueFive}`} style="btn" value={this.props.valueFive} clickHandler={this.reduceCount.bind(this,this.props.valueFive)} />
 
-            <Button text={`${this.props.text} ${this.props.valueFour}`} style="btn blue-btn" value={this.props.valueFour} clickHandler={this.incrementCount.bind(this,this.props.valueFour)} />
+            <Button text={this.props.text2 + ' ' + this.props.valueFour} style="btn" value={this.props.valueFour} clickHandler={this.reduceCount.bind(this,this.props.valueFour)} />
 
-            <Button text={`${this.props.text} ${this.props.valueFive}`} style="btn green-btn" value={this.props.valueFive} clickHandler={this.incrementCount.bind(this,this.props.valueFive)} />
+            <Button text={`${this.props.text2} ${this.props.valueThree}`} style="btn" value={this.props.valueThree} clickHandler={this.reduceCount.bind(this,this.props.valueThree)} />
 
-            <Button text={`${this.props.text} ${this.props.valueSix}`} style="btn purple-btn" value={this.props.valueSix} clickHandler={this.incrementCount.bind(this,this.props.valueSix)} />
+            <Button text={`${this.props.text2} ${this.props.valueTwo}`} style="btn" value={this.props.valueTwo} clickHandler={this.reduceCount.bind(this,this.props.valueTwo)} />
 
-            <button className="btn" onClick={this.resetCount}>Reset Count</button>
+            <Button text={`${this.props.text2} ${this.props.valueOne}`} style="btn" value={this.props.valueOne} clickHandler={this.reduceCount.bind(this,this.props.valueOne)} />
 
-            <button className="btn green-btn" onClick={this.multiply2}>x2</button>
+          </div>
 
-            <button className="btn red-btn" onClick={this.divide2}>Halve</button>
+          <div className="buttainer-add">
+            <Button text={`${this.props.text} ${this.props.valueOne}`} style="btn" value={this.props.valueOne} clickHandler={this.incrementCount.bind(this,this.props.valueOne)} />
 
+            <Button text={`${this.props.text} ${this.props.valueTwo}`} style="btn" value={this.props.valueTwo} clickHandler={this.incrementCount.bind(this,this.props.valueTwo)} />
+
+            <Button text={this.props.text + ' ' + this.props.valueThree} style="btn" value={this.props.valueThree} clickHandler={this.incrementCount.bind(this,this.props.valueThree)} />
+
+            <Button text={`${this.props.text} ${this.props.valueFour}`} style="btn" value={this.props.valueFour} clickHandler={this.incrementCount.bind(this,this.props.valueFour)} />
+
+            <Button text={`${this.props.text} ${this.props.valueFive}`} style="btn" value={this.props.valueFive} clickHandler={this.incrementCount.bind(this,this.props.valueFive)} />
+
+            <Button text={`${this.props.text} ${this.props.valueSix}`} style="btn" value={this.props.valueSix} clickHandler={this.incrementCount.bind(this,this.props.valueSix)} />
+
+            </div>
+
+
+              <div className='buttainer'>
+                <button className="btn" onClick={this.resetCount}>Reset Count</button>
+
+                <button className="btn" onClick={this.multiply2}>Double</button>
+
+                <button className="btn" onClick={this.divide2}>Halve</button>
+              </div>
           </div>
         )
       }
