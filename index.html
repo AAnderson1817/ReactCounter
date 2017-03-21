@@ -23,6 +23,11 @@
           count: this.state.count + value
         })
       },
+      reduceCount: function(value){
+        this.setState({
+          count:this.state.count - value
+        })
+      },
       resetCount: function(){
         this.setState({
           count:0
@@ -38,11 +43,42 @@
           count:this.state.count / 2
         })
       },
-      reduceCount: function(value){
+      sqroot: function(){
         this.setState({
-          count:this.state.count - value
+          count: Math.sqrt(this.state.count)
         })
       },
+      square: function(){
+        this.setState({
+          count: Math.pow(this.state.count,2)
+        })
+      },
+      cube: function(){
+        this.setState({
+          count: Math.pow(this.state.count,3)
+        })
+      },
+      roundDown: function(){
+        this.setState({
+          count: Math.floor(this.state.count)
+        })
+      },
+      roundUp: function(){
+        this.setState({
+          count: Math.ceil(this.state.count)
+        })
+      },
+      randomNum: function(){
+        this.setState({
+          count: Math.floor((Math.random() * 10000) + 1)
+        })
+      },
+      d20: function(){
+        this.setState({
+          count: Math.floor((Math.random()* 20) + 1)
+        })
+      },
+
       getDefaultProps: function(){
         return{
           valueOne:1,
@@ -100,6 +136,19 @@
                 <button className="btn" onClick={this.multiply2}>Double</button>
 
                 <button className="btn" onClick={this.divide2}>Halve</button>
+
+                <button className="btn" onClick={this.roundUp}>Round Up</button>
+
+                <button className="btn" onClick={this.roundDown}>Round Down</button>
+              </div>
+
+              <div className='buttainer'>
+                <button className="btn" onClick={this.randomNum}>Random Number</button>
+
+                <button className="btn" onClick={this.d20}>Roll 1D20</button>
+
+                <button className="btn" onClick={this.divide2}>Halve</button>
+
               </div>
           </div>
         )
